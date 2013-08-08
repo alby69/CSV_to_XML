@@ -1,0 +1,24 @@
+
+<PersonRecords>
+	<person>
+		<name>luis</name>
+		<email>derp@derp.com</email>
+		<phone>01212324</phone>
+		<ssn>233455</ssn>
+		<weight>100</weight>
+	</person>
+	<person>
+		<name>maria</name>
+		<email>mar@mar.com</email>
+		<phone>014111450</phone>
+		<ssn>7158978</ssn>
+		<weight>50</weight>
+	</person>
+	<person>
+		<name>alberto</name>
+		<email>al@bert.com</email>
+		<phone>145646464</phone>
+		<ssn>4464646</ssn>
+		<weight>70</weight>
+	</person>
+</PersonRecords>
