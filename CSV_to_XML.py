@@ -48,6 +48,12 @@ def buildAttributes(row):
         xmloutput += '\n\t\t' + opentag + attributes[i] + closetag + row[i] + opentag + '/' + attributes[i] + closetag
     xmloutput += '\n\t' + opentag + '/' + element + closetag  #</element>
 
+def saveToFile(filename):
+    text_file = open(filename, 'w')
+    text_file.write(xmloutput)
+    text_file.close()
+
 if __name__ == '__main__':
     loadFile(str(sys.argv[1]))
+    saveToFile(sys.argv[2])
     print xmloutput
