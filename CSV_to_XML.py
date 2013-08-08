@@ -33,19 +33,20 @@ def buildxml(reader):
     global xmloutput
 
     xmloutput += '\n' + opentag + root + closetag  #<root>
-    xmloutput += '\n' + '\t' + opentag + element + closetag  #<element>
+
     #<attributes>
-    xmloutput += '\n' + '\t' + opentag + '/' + element + closetag  #</element>
+    for row in reader:
+        buildAttributes(row)
+
     xmloutput += '\n' + opentag + '/' + root + closetag  #</root>
 
 
-
-
-
-
-    for row in reader:
-        print row
-
+def buildAttributes(row):
+    global xmloutput
+    xmloutput += '\n\t' + opentag + element + closetag  #<element>
+    for i in range(len(attributes)):
+        xmloutput += '\n\t\t' + opentag + attributes[i] + closetag + row[i] + opentag + '/' + attributes[i] + closetag
+    xmloutput += '\n\t' + opentag + '/' + element + closetag  #</element>
 
 if __name__ == '__main__':
     loadFile(str(sys.argv[1]))
