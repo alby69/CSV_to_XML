@@ -33,7 +33,6 @@ def extractHeadings(reader):
 def buildxml(reader):
     global xmloutput
     xmloutput += opentag + root + closetag  #<root>
-    #<attributes>
     for row in reader:
         buildAttributes(row)
     xmloutput += '\n' + opentag + '/' + root + closetag  #</root>
