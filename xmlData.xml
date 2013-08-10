@@ -1,5 +1,4 @@
-
-<PersonRecords>
+<Person_Records>
 	<person>
 		<name>luis</name>
 		<email>derp@derp.com</email>
@@ -21,4 +20,4 @@
 		<ssn>4464646</ssn>
 		<weight>70</weight>
 	</person>
-</PersonRecords>
+</Person_Records>

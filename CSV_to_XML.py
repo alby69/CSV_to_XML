@@ -1,6 +1,7 @@
 __author__ = 'William'
 import csv
 import sys
+import re
 
 xmloutput = ""
 root = ""
@@ -22,8 +23,8 @@ def loadFile(filename):
 def extractHeadings(reader):
     global root, element, attributes
     select = reader.next()
-    root = select[0]
-    element = select[1]
+    root = re.sub(r'\W+', '', select[0])
+    element = re.sub(r'\W+', '', select[1])
     select = reader.next()
     attributes = select
     buildxml(reader)
@@ -31,13 +32,10 @@ def extractHeadings(reader):
 
 def buildxml(reader):
     global xmloutput
-
-    xmloutput += '\n' + opentag + root + closetag  #<root>
-
+    xmloutput += opentag + root + closetag  #<root>
     #<attributes>
     for row in reader:
         buildAttributes(row)
-
     xmloutput += '\n' + opentag + '/' + root + closetag  #</root>
 
 
@@ -45,15 +43,18 @@ def buildAttributes(row):
     global xmloutput
     xmloutput += '\n\t' + opentag + element + closetag  #<element>
     for i in range(len(attributes)):
-        xmloutput += '\n\t\t' + opentag + attributes[i] + closetag + row[i] + opentag + '/' + attributes[i] + closetag
+        attribute = re.sub(r'\W+', '', attributes[i])
+        xmloutput += '\n\t\t' + opentag + attribute + closetag + row[i] + opentag + '/' + attribute + closetag
     xmloutput += '\n\t' + opentag + '/' + element + closetag  #</element>
+
 
 def saveToFile(filename):
     text_file = open(filename, 'w')
     text_file.write(xmloutput)
     text_file.close()
 
+
 if __name__ == '__main__':
     loadFile(str(sys.argv[1]))
     saveToFile(sys.argv[2])
-    print xmloutput
+    #print xmloutput
