@@ -4,6 +4,8 @@ CSV guidelines
 First row must contain the root and child element names
 The second row must contain the field names and must correspond the same number of fields in the csv data
 The third and subsequent rows contain the csv data
+see https://github.com/wtarr/CSV_to_XML/blob/master/csvData.csv for example
+
 
 This file was created by PyCharm 2.7.3 for binding GitHub repository
 
